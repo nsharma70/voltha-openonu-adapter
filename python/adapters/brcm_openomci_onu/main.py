@@ -534,7 +534,7 @@ class Main(object):
                 # Sending the heartbeat message in a loop
                 lc_heartbeat = LoopingCall(send_heartbeat_msg)
                 lc_heartbeat.start(10)
-                # Calling the poll method in a loop
+                # Polling the delivery status more frequently to get early notification
                 lc_poll = LoopingCall(check_heartbeat_delivery)
                 lc_poll.start(2)
             except Exception as e:
